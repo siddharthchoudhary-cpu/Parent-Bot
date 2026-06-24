@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenda Parent Bot V1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="v1.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">z</div><div><strong>Zenda</strong><span>Admin Console</span></div></div>
+      <div class="workspace-pill"><div class="school-avatar">WA</div><div><strong>Westbridge Academy</strong><span>Demo workspace</span></div><button>v</button></div>
+      <nav></nav>
+      <div class="sidebar-footer"><div class="profile"><div class="profile-avatar">SM</div><div><strong>Sarah Miller</strong><span>Administrator</span></div><button>...</button></div></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb">Parent Bot V1 <span>/</span> Quick setup</div>
+        <div class="top-actions"><span class="saved-state"><i></i> All changes saved</span><button class="button secondary" id="v1Preview">Test bot</button><button class="button primary" id="v1Publish">Publish V1</button></div>
+      </header>
+
+      <div class="content-layout v1-layout">
+        <section class="config-column">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow">LEAN FIRST RELEASE</div>
+              <h1>Set up Parent Bot V1</h1>
+              <p>Configure the bot one section at a time. Knowledge Base is where the school chooses which sources the bot can use.</p>
+            </div>
+            <div class="v1-ready"><span>OK</span><div><strong>5 setup areas</strong><small>Simple, demo-ready flow</small></div></div>
+          </div>
+
+          <section class="v1-card v1-bot-control">
+            <div class="v1-card-title"><span>ON</span><div><h2>Bot status</h2><p>Enable or disable the Parent Bot V1 experience for parents.</p></div><label class="switch"><input type="checkbox" checked><span></span></label></div>
+          </section>
+
+          <div class="v1-section-tabs" role="tablist" aria-label="Parent Bot V1 setup sections">
+            <button class="active" data-section="identity"><span>1</span><strong>Identity</strong><small>Name and role</small></button>
+            <button data-section="knowledge"><span>2</span><strong>Knowledge Base</strong><small>Sources to use</small></button>
+            <button data-section="prompt"><span>3</span><strong>Prompt</strong><small>Answer style</small></button>
+            <button data-section="welcome"><span>4</span><strong>Welcome Message</strong><small>First parent message</small></button>
+            <button data-section="test"><span>5</span><strong>Sample Test</strong><small>Try a question</small></button>
+          </div>
+
+          <section class="v1-card v1-panel active" data-panel="identity">
+            <div class="v1-card-title"><span>1</span><div><h2>Identity</h2><p>Define how the assistant appears to parents.</p></div><em>Required</em></div>
+            <div class="v1-card-body">
+              <div class="field-grid two">
+                <label class="field"><span>Assistant name</span><input id="v1Name" value="Wendy"></label>
+                <label class="field"><span>Role label</span><input value="Westbridge Parent Assistant"></label>
+              </div>
+              <div class="identity-preview">
+                <div class="bot-avatar" id="v1Avatar">W</div>
+                <div><strong id="v1PreviewName">Wendy</strong><span>Online - replies using school-approved information</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="v1-card v1-panel" data-panel="knowledge">
+            <div class="v1-card-title"><span>2</span><div><h2>Knowledge Base</h2><p>Choose which school sources the bot can use. Website is optional.</p></div><em>Required</em></div>
+            <div class="v1-card-body">
+              <div class="knowledge-source-list">
+                <article class="source-card active-source source-enabled" id="websiteSourceCard">
+                  <div>
+                    <strong>School website</strong>
+                    <span>Use public website pages as a knowledge source.</span>
+                  </div>
+                  <label class="source-toggle"><input id="websiteSourceToggle" type="checkbox" checked><span>Use in bot</span></label>
+                  <div class="source-settings" id="websiteSourceSettings">
+                    <label class="field"><span>Website URL</span><div class="url-entry"><span>URL</span><input value="https://www.westbridgeacademy.edu"><button id="v1Sync">Sync website</button></div></label>
+                    <div class="v1-sync-result">
+                      <span class="sync-check">OK</span>
+                      <div><strong id="v1SyncTitle">Website ready</strong><p id="v1SyncText">41 public pages synced. Last checked today at 10:42 AM</p></div>
+                      <button>Review pages</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="source-card active-source">
+                  <div>
+                    <strong>Contacts</strong>
+                    <span>Use published School Hub contacts to redirect parents to the right department.</span>
+                  </div>
+                  <label class="source-toggle"><input type="checkbox" checked><span>Use in bot</span></label>
+                  <a href="hub-contacts.html">Manage contacts in School Hub</a>
+                </article>
+
+                <article class="source-card muted-source">
+                  <div>
+                    <strong>FAQ & Documents</strong>
+                    <span>Policies, PDFs, canteen, transport and parent FAQs.</span>
+                  </div>
+                  <label class="source-toggle"><input type="checkbox" disabled><span>Later</span></label>
+                </article>
+
+                <article class="source-card muted-source">
+                  <div>
+                    <strong>Checklists</strong>
+                    <span>Onboarding, trips, events and term-start lists.</span>
+                  </div>
+                  <label class="source-toggle"><input type="checkbox" disabled><span>Later</span></label>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="v1-card v1-panel" data-panel="prompt">
+            <div class="v1-card-title"><span>3</span><div><h2>Prompt</h2><p>School-specific instructions for how answers should be handled.</p></div><em>Optional</em></div>
+            <div class="v1-card-body">
+              <div class="protected-rules v1-protected"><div class="protected-icon">OK</div><div><span>ALWAYS ON</span><strong>Zenda manages accuracy, privacy and safe answering</strong><p>The bot only uses approved information and does not invent an answer.</p></div></div>
+              <label class="field"><span>Custom instructions</span><textarea id="v1Instructions" rows="5">Keep answers short and friendly. Refer to children as students. For payment issues, show the Finance Office contact. For bus issues, show the Transport Desk contact.</textarea><small>Use plain language. You do not need to write a technical AI prompt.</small></label>
+            </div>
+          </section>
+
+          <section class="v1-card v1-panel" data-panel="welcome">
+            <div class="v1-card-title"><span>4</span><div><h2>Welcome Message</h2><p>The first message parents see when they open the bot.</p></div><em>Required</em></div>
+            <div class="v1-card-body">
+              <label class="field"><span>Welcome message</span><textarea id="v1Welcome" rows="4">Hi! I'm Wendy, your Westbridge Academy assistant. Ask me about school timings, fees, transport, policies or who to contact.</textarea><small><b id="v1Chars">123</b> / 240 characters</small></label>
+            </div>
+          </section>
+
+          <section class="v1-card v1-panel" data-panel="test">
+            <div class="v1-card-title"><span>5</span><div><h2>Sample Test</h2><p>Ask a parent-style question before publishing.</p></div><em>Recommended</em></div>
+            <div class="v1-card-body">
+              <label class="field"><span>Sample question</span><div class="v1-test-input"><input id="v1Question" value="Who should I contact about a fee payment issue?"><button id="v1RunTest">Generate answer</button></div></label>
+              <div class="v1-answer" id="v1Answer">
+                <div class="bot-avatar small">W</div>
+                <div><span>ANSWER PREVIEW</span><p>For a fee payment issue, please contact the Finance Office. Meera Shah, the Finance Manager, is available Monday to Friday from 8:00 AM to 3:30 PM.</p><div class="v1-answer-actions"><button>Call</button><button>Email</button><button>View contact</button></div><small>Source: School Hub Contacts. Custom instruction applied.</small></div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="preview-column">
+          <div class="preview-header"><div><span>LIVE PREVIEW</span><strong>Zenda mobile app</strong></div><div class="v1-chip">V1</div></div>
+          <div class="phone">
+            <div class="phone-top"><span>9:41</span><div>LTE</div></div>
+            <div class="mobile-screen">
+              <div class="zenda-header"><button>&lt;</button><div class="bot-avatar" id="v1AvatarMirror">W</div><div><strong id="v1PreviewNameMirror">Wendy</strong><span><i></i> Online - replies instantly</span></div><button>...</button></div>
+              <div class="chat-body" id="v1Chat">
+                <div class="date-divider"><span>Today</span></div>
+                <div class="bot-message"><div class="bot-avatar small">W</div><div><div class="bubble" id="v1PreviewWelcome">Hi! I'm Wendy, your Westbridge Academy assistant. Ask me about school timings, fees, transport, policies or who to contact.</div><span class="message-time">9:41 AM</span></div></div>
+                <div class="suggested-title">Try asking</div>
+                <div class="suggested-list"><button data-q="What are the school timings?">What are the school timings?</button><button data-q="Who should I contact about fees?">Who should I contact about fees?</button><button data-q="My bus did not arrive today">My bus did not arrive today</button></div>
+              </div>
+              <div class="chat-input"><button>+</button><div>Type your question...</div><button class="send-button">Send</button></div>
+              <div class="safe-note">School-approved information. Powered by Zenda</div><div class="home-indicator"></div>
+            </div>
+          </div>
+          <div class="preview-note"><span>i</span><p><strong>V1 parent experience</strong> Answers use only the Knowledge Base sources selected by the school.</p></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast"><span>OK</span><div><strong>V1 published</strong><p>The parent bot is live in Zenda.</p></div></div>
+  <script src="nested-nav.js"></script>
+  <script src="v1.js"></script>
+</body>
+</html>
